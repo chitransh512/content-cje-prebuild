@@ -2,31 +2,10 @@ pipeline {
     agent any
     stages {
     
-    stage('Deploy-from-Master') {
-            when {
-		        expression {
-		        return env.GIT_BRANCH == "origin/master" 
-
-                }   
-            }
+    stage('DeployMaster) {
             steps {
                 echo "Branch=Master"
 		    }   
         }
-	
-	
-	stage('Deploy-from-Develop') {
-            when {
-		        expression {
-		        return env.GIT_BRANCH == "origin/develop"
-
-                }   
-            }
-            steps {
-                echo "Branch=Deveelop"
-                 
-		    }   
-        }
+   }
 }
-}
-
