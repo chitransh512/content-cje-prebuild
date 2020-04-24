@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('For mastere') {
             steps {
-                
+                when {
+                branch 'production'
+            }
                 sh """
                     ls -la
                 """
@@ -15,7 +17,9 @@ pipeline {
         stage('for develop') {         
             
             steps {
-                
+                when {
+                branch 'development'
+            }
                     sh """ 
                     ls -la
                     """
