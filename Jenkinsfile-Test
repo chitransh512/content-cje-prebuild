@@ -5,16 +5,26 @@ pipeline {
     stage('Deploy-from-featurebranch') {
             when {
 		        expression {
-		        return env.GIT_BRANCH == "origin/master" || env.GIT_BRANCH == "origin/develop"
+		        return env.GIT_BRANCH == "origin/master" 
 
                 }   
             }
             steps {
-                echo ${env.GIT_BRANCH}
-                    //sshagent(['dev-server']) {
-                    //sh "rsync -ivhr $WORKSPACE/ServiceInterface/bin/ -e 'ssh -o StrictHostKeyChecking=no' '${env.devsfws}':'/usr/share/nginx/www/DevRubyWS/bin/'"
-                    //sh "ssh -o StrictHostKeyChecking=no '${env.devsfws}' 'sudo chmod +x /usr/share/nginx/www/DevRubyWS/bin'"
-                //}
+                echo "Branch=Master"
+		    }   
+        }
+	
+	
+	stage('Deploy-from-featurebranch') {
+            when {
+		        expression {
+		        return env.GIT_BRANCH == "origin/develop"
+
+                }   
+            }
+            steps {
+                echo "Branch=Deveelop"
+                 
 		    }   
         }
 }
