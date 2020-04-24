@@ -1,19 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
-            steps {
-          script {  when {
+    
+    stage('Deploy-from-featurebranch') {
+            when {
 		        expression {
-		        return env.BRANCH_NAME == "origin/master"
+		        return env.GIT_BRANCH == "origin/master"
+
                 }   
             }
-	    }
-                sh """
-                    ls -la
-                    echo $env.BRANCH_NAME
-                """
-            }
+            steps {
+                echo 'Deploying to QA Environment'
+                    //sshagent(['dev-server']) {
+                    //sh "rsync -ivhr $WORKSPACE/ServiceInterface/bin/ -e 'ssh -o StrictHostKeyChecking=no' '${env.devsfws}':'/usr/share/nginx/www/DevRubyWS/bin/'"
+                    //sh "ssh -o StrictHostKeyChecking=no '${env.devsfws}' 'sudo chmod +x /usr/share/nginx/www/DevRubyWS/bin'"
+                //}
+		    }   
         }
-    }
+}
+}
 }
