@@ -5,7 +5,7 @@ pipeline {
     stage('Deploy-from-featurebranch') {
             when {
 		        expression {
-		        return env.GIT_BRANCH == "origin/master"
+		        return env.GIT_BRANCH == "origin/master" || env.GIT_BRANCH == "origin/development"
 
                 }   
             }
