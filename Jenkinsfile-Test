@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-            when{
-            env.BRANCH_NAME == "origin/master" || env.BRANCH_NAME == "origin/development"
+            when {
+		        expression {
+		        return env.BRANCH_NAME == "origin/master"
+                }   
             }
                 sh """
                     ls -la
