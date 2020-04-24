@@ -1,11 +1,10 @@
 pipeline {
     agent any
     stages {
-    
-    stage('Deploy From Develop) {
+        stage('Example') {
             steps {
-                echo "Branch = Develop"
-		    }   
+                echo 'Hello master'
+            }
         }
-   }
+    }
 }
