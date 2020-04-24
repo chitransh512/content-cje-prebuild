@@ -3,11 +3,12 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-            when {
+          script {  when {
 		        expression {
 		        return env.BRANCH_NAME == "origin/master"
                 }   
             }
+	    }
                 sh """
                     ls -la
                     echo $env.BRANCH_NAME
