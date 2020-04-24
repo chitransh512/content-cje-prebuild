@@ -3,7 +3,7 @@ pipeline {
     stages {
     
     stage('DeployMaster) {
-            steps {
+        steps {
                 echo "Branch=Master"
 		    }   
         }
