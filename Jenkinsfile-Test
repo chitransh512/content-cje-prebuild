@@ -4,20 +4,11 @@ pipeline {
     stages {
         stage('For mastere') {
             steps {
+            when(env.BRANCH_NAME == origin/master || env.BRANCH_NAME == origin/development)
                 sh """
                     ls -la
                 """
             }
-        }
-    
-
-        stage('for develop') {         
-            
-            steps {
-                    sh """ 
-                    ls -la
-                    """
-                }
         }
     }
 }
