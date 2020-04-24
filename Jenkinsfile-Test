@@ -2,9 +2,9 @@ pipeline {
     agent any
     stages {
     
-    stage('DeployMaster) {
+    stage('Deploy From Develop) {
             steps {
-                echo "Branch=Master"
+                echo "Branch = Develop"
 		    }   
         }
    }
