@@ -1,11 +1,10 @@
 pipeline {
     agent any
     stages {
-    
-    stage('DeployMaster) {
-        steps {
-                echo "Branch=Master"
-		    }   
+        stage('Example') {
+            steps {
+                echo 'Hello master'
+            }
         }
-   }
+    }
 }
