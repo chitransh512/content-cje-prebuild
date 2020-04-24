@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('For mastere') {
+            steps {
+                
+                sh """
+                    ls -la
+                """
+            }
+        }
+    
+
+        stage('for develop') {         
+            
+            steps {
+                
+                    sh """ 
+                    ls -la
+                    """
+                }
+        }
+    }
+}
