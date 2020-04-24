@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    
     stages {
-        stage('For mastere') {
+        stage('Test') {
             steps {
             when(env.BRANCH_NAME == origin/master || env.BRANCH_NAME == origin/development)
                 sh """
                     ls -la
+                    echo $env.BRANCH_NAME
                 """
             }
         }
